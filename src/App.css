@@ -1,38 +1,95 @@
-.App {
-  text-align: center;
+@font-face {
+  font-family: Andika;
+  src: url("https://fonts.googleapis.com/css?family=Andika&display=swap");
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+div {
+  border: 1px solid black;
+  font-family: Andika, "Arial", "Times New Roman";
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.upper {
+  display: flex;
+  justify-content: center;
+  min-height: 50vh;
+  margin-top: 5vh;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.upperleft {
+  display: flex;
+  justify-content: center;
+  min-width: 50%;
+}
+
+.upperright {
+  display: flex;
+  justify-content: flex-end;
+  width: 20%;
+}
+
+.buttons {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  min-height: 50vh;
+  min-width: 10vw;
 }
 
-.App-link {
-  color: #61dafb;
+.subjectpic {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.uppersentence {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 3em;
+}
+
+.word {
+  margin: 10px;
+  padding: 10px;
+}
+
+.lower {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.pronoun {
+  margin: 2px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.pronoun:hover {
+  box-shadow: 0px 0px 3px 3px #3aabff;
+  border-radius: 2px;
+  background-color: #3aabff;
+}
+
+.image,
+.speaker,
+.listener,
+.speechbubble {
+  width: 5vw;
+  height: 5vw;
+}
+
+.lowersentence {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3em;
+  margin-left: 20px;
+  /* background-image: src("speechbubble.png"); */
+  /* backgroun-size: cover; */
 }

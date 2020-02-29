@@ -1,9 +1,10 @@
 import React from "react";
+import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 import { pronouns, PronounBtns } from "./pronouns";
 import { verbs, verbChoices } from "./verbs";
 import { objectPlurals } from "./objects";
 import { UpperSentence, LowerSentence } from "./sentences";
-import { HelpOverlay } from "./helpoverlay";
+import { HelpInstructions } from "./help";
 import "./App.css";
 
 class App extends React.Component {
@@ -20,7 +21,7 @@ class App extends React.Component {
       lowerSubject: "I",
       lowerVerb: "like",
       lowerObject: "cat",
-      overlay: "none"
+      help: false
     };
     this.changePronoun = this.changePronoun.bind(this);
     this.changeVerb = this.changeVerb.bind(this);
@@ -30,8 +31,7 @@ class App extends React.Component {
     this.pluralize = this.pluralize.bind(this);
     this.presentSimple = this.presentSimple.bind(this);
     this.capitalize = this.capitalize.bind(this);
-    this.showOverlay = this.showOverlay.bind(this);
-    this.hideOverlay = this.hideOverlay.bind(this);
+    this.toggleHelp = this.toggleHelp.bind(this);
   }
 
   changePronoun = props => {
@@ -104,80 +104,94 @@ class App extends React.Component {
     return props + "s";
   };
 
-  showOverlay = () => {
-    console.log("showOverlay");
+  toggleHelp = () => {
     this.setState(() => {
-      return { overlay: "block" };
-    });
-  };
-
-  hideOverlay = () => {
-    console.log("hideOverlay");
-    this.setState(() => {
-      return { overlay: "none" };
+      return { help: !this.state.help };
     });
   };
 
   render() {
     return (
       <React.Fragment>
-        <div className="upper">
-          <div className="upperleft">
-            <div className="uppersentence">
+        <BrowserRouter>
+          <div className="upper">
+            <Switch>
+              <Route path="/help">
+                <HelpInstructions {...this.state} />
+              </Route>
+
+              <Route path="/">
+                <div className="upperleft">
+                  <div className="uppersentence">
+                    <img
+                      className="subjectpic subject example"
+                      src={this.state.subject.image}
+                      alt="main"
+                    ></img>
+                    <UpperSentence
+                      changeVerb={this.changeVerb}
+                      changeObject={this.changeObject}
+                      verbChoices={verbChoices}
+                      objectPlurals={objectPlurals}
+                      {...this.state}
+                    />
+                  </div>
+                </div>
+              </Route>
+            </Switch>
+
+            <div className="upperright">
+              <div className="buttons">
+                <PronounBtns changePronoun={this.changePronoun} />
+              </div>
+            </div>
+          </div>
+
+          <div className="lower">
+            <div className="lowerleft">
               <img
-                className="subjectpic subject example"
-                src={this.state.subject.image}
-                alt="main"
+                className="speaker"
+                src={this.state.speaker}
+                alt="speaker"
               ></img>
-              <UpperSentence
-                changeVerb={this.changeVerb}
-                changeObject={this.changeObject}
-                verbChoices={verbChoices}
-                objectPlurals={objectPlurals}
+              <img
+                src="speechbubble.png"
+                className="speechbubble"
+                alt="speech bubble"
+              ></img>
+              <img
+                className="listener"
+                src="charizardsface.png"
+                alt="listener"
+              ></img>
+
+              <LowerSentence
+                capitalize={this.capitalize}
+                changeObjectForm={this.changeObjectForm}
+                changeVerbForm={this.changeVerbForm}
                 {...this.state}
               />
             </div>
-          </div>
-
-          <div className="upperright">
-            <div className="buttons">
-              <PronounBtns changePronoun={this.changePronoun} />
+            <div className="help">
+              {this.state.help ? (
+                <Link style={{ textDecoration: "none", color: "black" }} to="/">
+                  <div onClick={() => this.toggleHelp()} className="helptext">
+                    Return
+                  </div>
+                </Link>
+              ) : (
+                <Link
+                  style={{ textDecoration: "none", color: "black" }}
+                  to="/help"
+                >
+                  <div onClick={() => this.toggleHelp()} className="helptext">
+                    Help
+                  </div>
+                </Link>
+              )}
             </div>
           </div>
-        </div>
-
-        <div className="lower">
-          <div className="lowerleft">
-            <img
-              className="speaker"
-              src={this.state.speaker}
-              alt="speaker"
-            ></img>
-            <img
-              src="speechbubble.png"
-              className="speechbubble"
-              alt="speech bubble"
-            ></img>
-            <img
-              className="listener"
-              src="charizardsface.png"
-              alt="listener"
-            ></img>
-
-            <LowerSentence
-              capitalize={this.capitalize}
-              changeObjectForm={this.changeObjectForm}
-              changeVerbForm={this.changeVerbForm}
-              {...this.state}
-            />
-          </div>
-          <div className="help">
-            <div showOverlay={this.showOverlay} className="helptext">
-              help
-            </div>
-          </div>
-        </div>
-        <HelpOverlay hideOverlay={this.hideOverlay} {...this.state} />
+        </BrowserRouter>
       </React.Fragment>
     );
   }

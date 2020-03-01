@@ -27,6 +27,16 @@ const verbs = {
     it: "plays",
     we: "play",
     they: "play"
+  },
+
+  speak: {
+    I: "speak",
+    you: "speak",
+    he: "speaks",
+    she: "speaks",
+    it: "speaks",
+    we: "speak",
+    they: "speak"
   }
 };
 

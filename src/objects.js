@@ -1,9 +1,11 @@
 const objectPlurals = {
   cat: "cats",
   shoe: "shoes",
-  potato: "potatoes",
+  dog: "dogs",
   cheese: "cheeses",
-  baseball: "baseballs"
+  baseball: "baseballs",
+  hat: "hats",
+  English: "English"
 };
 
 export { objectPlurals };

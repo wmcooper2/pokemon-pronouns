@@ -35,11 +35,11 @@ const HelpInstructions = props => {
               <li>{instructions.five}</li>
             </div>
           </div>
-          <button className="language-button" onClick={() => toggleLanguage()}>
-            {English ? "日本語" : "English"}
-          </button>
         </ol>
       </div>
+      <button className="language-button" onClick={() => toggleLanguage()}>
+        {English ? "日本語" : "English"}
+      </button>
     </div>
   );
 };

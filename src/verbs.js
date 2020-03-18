@@ -37,9 +37,30 @@ const verbs = {
     it: "speaks",
     we: "speak",
     they: "speak"
+  },
+
+  have: {
+    I: "have",
+    you: "have",
+    he: "has",
+    she: "has",
+    it: "has",
+    we: "have",
+    they: "have"
+  },
+
+  be: {
+    I: "am",
+    you: "are",
+    he: "is",
+    she: "is",
+    it: "is",
+    we: "are",
+    they: "are"
   }
 };
 
+//verb choices: like, eat, play, speak, have, is
 const verbChoices = Object.keys(verbs);
 
 export { verbs, verbChoices };

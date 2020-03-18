@@ -1,3 +1,10 @@
+:root {
+  --small-padding: 3px;
+  --med-padding: 10px;
+  --small-margin: 10px;
+  --light-blue: #aed6f1;
+  --soft-border: 6px;
+}
 @font-face {
   font-family: Andika;
   src: url("https://fonts.googleapis.com/css?family=Andika&display=swap");
@@ -5,7 +12,6 @@
 
 div,
 img {
-  /* border: 1px solid black; */
   font-family: Andika, "Arial", "Times New Roman";
 }
 
@@ -18,6 +24,7 @@ img {
 
 .upperleft {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   min-width: 80vw;
@@ -40,6 +47,10 @@ img {
   min-width: 10vw;
 }
 
+div.buttons {
+  padding: var(--small-padding) var(--med-padding);
+}
+
 .subjectpic {
   display: flex;
   flex-direction: column;
@@ -60,7 +71,7 @@ img {
 
 .word {
   margin: 10px;
-  padding: 10px;
+  padding: var(--med-padding);
   border-radius: 6px;
 }
 
@@ -111,8 +122,6 @@ img {
   justify-content: center;
   align-items: center;
   font-size: 3em;
-  /* background-image: src("speechbubble.png"); */
-  /* backgroun-size: cover; */
 }
 
 .lowerleft {
@@ -126,7 +135,7 @@ img {
   display: flex;
   justify-content: center;
   min-width: 18vw;
-  padding: 3px;
+  font-size: 1.5rem;
 }
 
 .helptext {
@@ -135,6 +144,11 @@ img {
   text-align: center;
   background-color: #aed6f1;
   text-decoration: none;
+  padding: var(--med-padding);
+}
+
+span {
+  padding: 1px;
 }
 
 .subject,
@@ -156,10 +170,16 @@ img {
 }
 
 li {
-  margin: 10px auto;
+  margin: var(--small-margin) auto;
 }
 
 .language-button {
+  width: 10vw;
+  height: auto;
+  margin: 0% 50%;
   border: none;
   outline: none;
+  font-size: 1.5rem;
+  border-radius: var(--soft-border);
+  background-color: var(--light-blue);
 }

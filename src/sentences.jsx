@@ -11,9 +11,11 @@ const UpperSentence = props => {
   } = props;
   return (
     <React.Fragment>
+      <span>+</span>
       <div className="verb word example" onClick={() => changeVerb()}>
         {verbChoices[verbIndex]}
       </div>
+      <span>+</span>
       <div className="object word example" onClick={() => changeObject()}>
         {Object.keys(objectPlurals)[objectIndex]}
       </div>

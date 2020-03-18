@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/pokemon-pronouns/static/css/main.69e5290e.chunk.css",
+    "main.js": "/pokemon-pronouns/static/js/main.fdba37c0.chunk.js",
+    "main.js.map": "/pokemon-pronouns/static/js/main.fdba37c0.chunk.js.map",
+    "runtime-main.js": "/pokemon-pronouns/static/js/runtime-main.fb7e335f.js",
+    "runtime-main.js.map": "/pokemon-pronouns/static/js/runtime-main.fb7e335f.js.map",
+    "static/js/2.65c2381e.chunk.js": "/pokemon-pronouns/static/js/2.65c2381e.chunk.js",
+    "static/js/2.65c2381e.chunk.js.map": "/pokemon-pronouns/static/js/2.65c2381e.chunk.js.map",
+    "index.html": "/pokemon-pronouns/index.html",
+    "precache-manifest.67fa7849c00b2596846ff932e7cae73c.js": "/pokemon-pronouns/precache-manifest.67fa7849c00b2596846ff932e7cae73c.js",
+    "service-worker.js": "/pokemon-pronouns/service-worker.js",
+    "static/css/main.69e5290e.chunk.css.map": "/pokemon-pronouns/static/css/main.69e5290e.chunk.css.map",
+    "static/js/2.65c2381e.chunk.js.LICENSE.txt": "/pokemon-pronouns/static/js/2.65c2381e.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.fb7e335f.js",
+    "static/js/2.65c2381e.chunk.js",
+    "static/css/main.69e5290e.chunk.css",
+    "static/js/main.fdba37c0.chunk.js"
+  ]
+}

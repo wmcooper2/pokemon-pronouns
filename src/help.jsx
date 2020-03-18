@@ -1,47 +1,43 @@
 import React from "react";
+import { EnglishInst, JapaneseInst } from "./instructions";
 
 const HelpInstructions = props => {
-  const { help } = props;
+  const { help, English, toggleLanguage } = props;
+  // console.log("English? ", English);
   let textStyles = { fontSize: "3em" };
   if (help) {
     textStyles = { fontSize: "1em" };
   }
+
+  let instructions = {};
+  if (English) {
+    instructions = EnglishInst;
+  } else {
+    instructions = JapaneseInst;
+  }
+
   return (
     <div className="upperleft">
       <div className="uppersentence" style={textStyles}>
         <ol>
           <div className="upperhelp">
-            <h1 className="upperlefthelp">Above Sentence</h1>
+            <h1 className="upperlefthelp">{instructions.above}</h1>
             <div className="upperrighthelp">
-              <li>
-                Click&nbsp;<span className="helpverb">verb</span>&nbsp;and&nbsp;
-                <span className="helpobject">object</span>&nbsp;to cycle them.
-              </li>
-              <li>
-                Click the buttons on the right to change&nbsp;
-                <span className="helpsubject">subject</span>&nbsp;.
-              </li>
+              <li>{instructions.one}</li>
+              <li>{instructions.two}</li>
             </div>
           </div>
           <div className="lowerhelp">
-            <h1 className="lowerlefthelp">Below Sentence</h1>
+            <h1 className="lowerlefthelp">{instructions.below}</h1>
             <div className="lowerrighthelp">
-              <li>
-                The&nbsp;
-                <span className="helpsubject">subject</span>&nbsp;and&nbsp;
-                <span className="helpverb">verb</span>&nbsp;only go to the
-                correct answer when clicked.
-              </li>
-              <li>
-                The&nbsp;<span className="helpobject">object</span>&nbsp; cycles
-                through a few options.
-              </li>
-              <li>
-                It is up to the teacher to know the correct use of the &nbsp;
-                <span className="helpobject">object</span>&nbsp;.
-              </li>
+              <li>{instructions.three}</li>
+              <li>{instructions.four}</li>
+              <li>{instructions.five}</li>
             </div>
           </div>
+          <button className="language-button" onClick={() => toggleLanguage()}>
+            {English ? "日本語" : "English"}
+          </button>
         </ol>
       </div>
     </div>

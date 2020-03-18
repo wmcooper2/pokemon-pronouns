@@ -158,3 +158,8 @@ img {
 li {
   margin: 10px auto;
 }
+
+.language-button {
+  border: none;
+  outline: none;
+}

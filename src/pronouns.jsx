@@ -8,7 +8,8 @@ const pronouns = [
     possAdj: "my",
     possPro: "mine",
     reflexive: "myself",
-    image: "pikachu.png"
+    image:
+      "https://s3-ap-northeast-1.amazonaws.com/wmcooper2.com/pokemon-pronouns/pikachu.png"
   },
   {
     subject: "you",
@@ -16,7 +17,8 @@ const pronouns = [
     possAdj: "your",
     possPro: "yours",
     reflexive: "yourself",
-    image: "charizard.png"
+    image:
+      "https://s3-ap-northeast-1.amazonaws.com/wmcooper2.com/pokemon-pronouns/charizard.png"
   },
   {
     subject: "he",
@@ -24,7 +26,8 @@ const pronouns = [
     possAdj: "his",
     possPro: "his",
     reflexive: "himself",
-    image: "ash.jpg"
+    image:
+      "https://s3-ap-northeast-1.amazonaws.com/wmcooper2.com/pokemon-pronouns/ash.jpg"
   },
   {
     subject: "she",
@@ -32,7 +35,8 @@ const pronouns = [
     possAdj: "her",
     possPro: "hers",
     reflexive: "herself",
-    image: "misty.png"
+    image:
+      "https://s3-ap-northeast-1.amazonaws.com/wmcooper2.com/pokemon-pronouns/misty.png"
   },
   {
     subject: "it",
@@ -40,7 +44,8 @@ const pronouns = [
     possAdj: "its",
     possPro: null,
     reflexive: "itself",
-    image: "pokeball.png"
+    image:
+      "https://s3-ap-northeast-1.amazonaws.com/wmcooper2.com/pokemon-pronouns/pokeball.png"
   },
   {
     subject: "we",
@@ -48,7 +53,8 @@ const pronouns = [
     possAdj: "our",
     possPro: "ours",
     reflexive: "ourselves",
-    image: "we.jpg"
+    image:
+      "https://s3-ap-northeast-1.amazonaws.com/wmcooper2.com/pokemon-pronouns/we.jpg"
   },
   {
     subject: "they",
@@ -56,7 +62,8 @@ const pronouns = [
     possAdj: "their",
     possPro: "theirs",
     reflexive: "themselves",
-    image: "they.png"
+    image:
+      "https://s3-ap-northeast-1.amazonaws.com/wmcooper2.com/pokemon-pronouns/they.png"
   }
 ];
 
@@ -73,5 +80,7 @@ const PronounBtns = props => {
   });
   return buttons;
 };
+
+
 
 export { pronouns, PronounBtns };

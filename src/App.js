@@ -1,5 +1,7 @@
 import React from "react";
-import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import SpeakersBox from "./speakersbox";
+import HelpBtn from "./helpbutton";
 import { pronouns, PronounBtns } from "./pronouns";
 import { verbs, verbChoices } from "./verbs";
 import { objectPlurals } from "./objects";
@@ -12,7 +14,8 @@ class App extends React.Component {
     super(props);
     this.state = {
       subject: pronouns[0],
-      speaker: "speaker.png",
+      speaker:
+        "https://s3-ap-northeast-1.amazonaws.com/wmcooper2.com/pokemon-pronouns/speaker.png",
       verbIndex: 0,
       objectIndex: 0,
       lowerObjectOptionIndex: 0,
@@ -21,7 +24,8 @@ class App extends React.Component {
       lowerSubject: "I",
       lowerVerb: "like",
       lowerObject: "cat",
-      help: false
+      help: false,
+      English: true
     };
     this.changePronoun = this.changePronoun.bind(this);
     this.changeVerb = this.changeVerb.bind(this);
@@ -32,10 +36,11 @@ class App extends React.Component {
     this.presentSimple = this.presentSimple.bind(this);
     this.capitalize = this.capitalize.bind(this);
     this.toggleHelp = this.toggleHelp.bind(this);
+    this.toggleLanguage = this.toggleLanguage.bind(this);
   }
 
   changePronoun = props => {
-    console.log("changePronoun: ", props);
+    // console.log("changePronoun: ", props);
     this.setState(() => {
       return { subject: props };
     });
@@ -81,7 +86,7 @@ class App extends React.Component {
         ? this.state.lowerObjectOptionIndex + 1
         : 0;
     let sentenceEnd = options[optionCounter];
-    console.log("sentenceEnd: ", sentenceEnd);
+    // console.log("sentenceEnd: ", sentenceEnd);
     this.setState(() => {
       return {
         lowerObject: sentenceEnd,
@@ -111,6 +116,12 @@ class App extends React.Component {
     });
   };
 
+  toggleLanguage = () => {
+    this.setState(() => {
+      return { English: !this.state.English };
+    });
+  };
+
   render() {
     return (
       <React.Fragment>
@@ -118,7 +129,10 @@ class App extends React.Component {
           <div className="upper">
             <Switch>
               <Route path="/help">
-                <HelpInstructions {...this.state} />
+                <HelpInstructions
+                  {...this.state}
+                  toggleLanguage={this.toggleLanguage}
+                />
               </Route>
 
               <Route path="/">
@@ -150,22 +164,7 @@ class App extends React.Component {
 
           <div className="lower">
             <div className="lowerleft">
-              <img
-                className="speaker"
-                src={this.state.speaker}
-                alt="speaker"
-              ></img>
-              <img
-                src="speechbubble.png"
-                className="speechbubble"
-                alt="speech bubble"
-              ></img>
-              <img
-                className="listener"
-                src="charizardsface.png"
-                alt="listener"
-              ></img>
-
+              <SpeakersBox {...this.state} />
               <LowerSentence
                 capitalize={this.capitalize}
                 changeObjectForm={this.changeObjectForm}
@@ -173,24 +172,7 @@ class App extends React.Component {
                 {...this.state}
               />
             </div>
-            <div className="help">
-              {this.state.help ? (
-                <Link style={{ textDecoration: "none", color: "black" }} to="/">
-                  <div onClick={() => this.toggleHelp()} className="helptext">
-                    Return
-                  </div>
-                </Link>
-              ) : (
-                <Link
-                  style={{ textDecoration: "none", color: "black" }}
-                  to="/help"
-                >
-                  <div onClick={() => this.toggleHelp()} className="helptext">
-                    Help
-                  </div>
-                </Link>
-              )}
-            </div>
+            <HelpBtn handleClick={this.toggleHelp} {...this.state} />
           </div>
         </BrowserRouter>
       </React.Fragment>

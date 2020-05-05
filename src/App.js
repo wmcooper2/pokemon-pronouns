@@ -40,7 +40,6 @@ class App extends React.Component {
   }
 
   changePronoun = props => {
-    // console.log("changePronoun: ", props);
     this.setState(() => {
       return { subject: props };
     });

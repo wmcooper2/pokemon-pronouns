@@ -1,17 +1,20 @@
-@media (max-width: 600px) {
+@media (max-width: 720px) {
   div.lesson {
     width: 100vw;
   }
 
   div.pronoun,
+  div.answer,
   .main {
     display: flex;
     flex-direction: column;
+    align-items: center;
   }
 
-  /* div.main { */
-  /* justify-content: space-around; */
-  /* } */
+  div.pronoun img {
+    width: 10vw;
+    height: auto;
+  }
 
   div.pronoun {
     font-size: 1rem;
@@ -20,6 +23,11 @@
   div.choices {
     display: flex;
     flex-direction: row;
+    align-items: center;
     width: 100vw;
+  }
+
+  div.dialog {
+    width: 100%;
   }
 }

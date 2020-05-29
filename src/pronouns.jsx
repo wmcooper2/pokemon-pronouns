@@ -27,7 +27,7 @@ const pronouns = [
     possPro: "his",
     reflexive: "himself",
     image:
-      "https://s3-ap-northeast-1.amazonaws.com/wmcooper2.com/pokemon-pronouns/ash.jpg",
+      "https://s3-ap-northeast-1.amazonaws.com/wmcooper2.com/pokemon-pronouns/ash.png",
   },
   {
     subject: "she",
@@ -54,7 +54,7 @@ const pronouns = [
     possPro: "ours",
     reflexive: "ourselves",
     image:
-      "https://s3-ap-northeast-1.amazonaws.com/wmcooper2.com/pokemon-pronouns/we.jpg",
+      "https://s3-ap-northeast-1.amazonaws.com/wmcooper2.com/pokemon-pronouns/we.png",
   },
   {
     subject: "they",
@@ -73,7 +73,7 @@ const PronounBtns = (props) => {
     buttons.push(
       <React.Fragment>
         <div className="pronoun" onClick={() => props.changePronoun(item)}>
-          <img className="image" src={item.image} alt="pronoun"></img>
+          <img src={item.image} alt="pronoun"></img>
           <span>{item.subject}</span>
         </div>
       </React.Fragment>

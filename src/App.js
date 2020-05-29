@@ -1,11 +1,11 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import SpeakersBox from "./speakersbox";
+import Characters from "./characters";
 import HelpBtn from "./helpbutton";
 import { pronouns, PronounBtns } from "./pronouns";
 import { verbs, verbChoices } from "./verbs";
 import { objectPlurals } from "./objects";
-import { UpperSentence, LowerSentence } from "./sentences";
+import { ExampleSentence, CorrectSentence } from "./sentences";
 import { HelpInstructions } from "./help";
 import "./App.css";
 
@@ -25,7 +25,7 @@ class App extends React.Component {
       lowerVerb: "like",
       lowerObject: "cat",
       help: false,
-      English: true
+      English: true,
     };
     this.changePronoun = this.changePronoun.bind(this);
     this.changeVerb = this.changeVerb.bind(this);
@@ -39,7 +39,7 @@ class App extends React.Component {
     this.toggleLanguage = this.toggleLanguage.bind(this);
   }
 
-  changePronoun = props => {
+  changePronoun = (props) => {
     this.setState(() => {
       return { subject: props };
     });
@@ -55,7 +55,7 @@ class App extends React.Component {
     });
   };
 
-  changeVerbForm = props => {
+  changeVerbForm = (props) => {
     let currentChoice = this.state.subject.subject;
     let availableChoices = verbs[verbChoices[this.state.verbIndex]];
     this.setState(() => {
@@ -67,18 +67,18 @@ class App extends React.Component {
     const objectCount = Object.keys(objectPlurals).length;
     let currentIndex =
       this.state.objectIndex < objectCount - 1 ? this.state.objectIndex + 1 : 0;
-    this.setState(state => {
+    this.setState((state) => {
       return { objectIndex: currentIndex };
     });
   };
 
-  changeObjectForm = props => {
+  changeObjectForm = (props) => {
     let objects = Object.keys(objectPlurals);
     let currentChoice = objects[this.state.objectIndex];
     const options = [
       `a ${currentChoice}.`,
       ` ${currentChoice}.`,
-      `${this.pluralize(currentChoice)}.`
+      `${this.pluralize(currentChoice)}.`,
     ];
     let optionCounter =
       this.state.lowerObjectOptionIndex < options.length - 1
@@ -89,23 +89,23 @@ class App extends React.Component {
     this.setState(() => {
       return {
         lowerObject: sentenceEnd,
-        lowerObjectOptionIndex: optionCounter
+        lowerObjectOptionIndex: optionCounter,
       };
     });
   };
 
-  capitalize = props => {
+  capitalize = (props) => {
     const newPronoun = props.charAt(0).toUpperCase() + props.slice(1);
     this.setState(() => {
       return { lowerSubject: newPronoun };
     });
   };
 
-  pluralize = props => {
+  pluralize = (props) => {
     return props + "s";
   };
 
-  presentSimple = props => {
+  presentSimple = (props) => {
     return props + "s";
   };
 
@@ -123,9 +123,9 @@ class App extends React.Component {
 
   render() {
     return (
-      <React.Fragment>
-        <BrowserRouter>
-          <div className="upper">
+      <BrowserRouter>
+        <div className="main">
+          <div className="lesson">
             <Switch>
               <Route path="/help">
                 <HelpInstructions
@@ -135,46 +135,41 @@ class App extends React.Component {
               </Route>
 
               <Route path="/">
-                <div className="upperleft">
-                  <div className="uppersentence">
-                    <img
-                      className="subjectpic subject example"
-                      src={this.state.subject.image}
-                      alt="main"
-                    ></img>
-                    <UpperSentence
-                      changeVerb={this.changeVerb}
-                      changeObject={this.changeObject}
-                      verbChoices={verbChoices}
-                      objectPlurals={objectPlurals}
-                      {...this.state}
-                    />
-                  </div>
+                <div className="example">
+                  <img
+                    className="subject"
+                    src={this.state.subject.image}
+                    alt="main"
+                  ></img>
+
+                  <ExampleSentence
+                    changeVerb={this.changeVerb}
+                    changeObject={this.changeObject}
+                    verbChoices={verbChoices}
+                    objectPlurals={objectPlurals}
+                    {...this.state}
+                  />
+                </div>
+
+                <div className="answer">
+                  <Characters {...this.state} />
+                  <CorrectSentence
+                    capitalize={this.capitalize}
+                    changeObjectForm={this.changeObjectForm}
+                    changeVerbForm={this.changeVerbForm}
+                    {...this.state}
+                  />
                 </div>
               </Route>
             </Switch>
-
-            <div className="upperright">
-              <div className="buttons">
-                <PronounBtns changePronoun={this.changePronoun} />
-              </div>
-            </div>
           </div>
 
-          <div className="lower">
-            <div className="lowerleft">
-              <SpeakersBox {...this.state} />
-              <LowerSentence
-                capitalize={this.capitalize}
-                changeObjectForm={this.changeObjectForm}
-                changeVerbForm={this.changeVerbForm}
-                {...this.state}
-              />
-            </div>
+          <div className="choices">
+            <PronounBtns changePronoun={this.changePronoun} />
             <HelpBtn handleClick={this.toggleHelp} {...this.state} />
           </div>
-        </BrowserRouter>
-      </React.Fragment>
+        </div>
+      </BrowserRouter>
     );
   }
 }

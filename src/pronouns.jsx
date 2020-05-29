@@ -9,7 +9,7 @@ const pronouns = [
     possPro: "mine",
     reflexive: "myself",
     image:
-      "https://s3-ap-northeast-1.amazonaws.com/wmcooper2.com/pokemon-pronouns/pikachu.png"
+      "https://s3-ap-northeast-1.amazonaws.com/wmcooper2.com/pokemon-pronouns/pikachu.png",
   },
   {
     subject: "you",
@@ -18,7 +18,7 @@ const pronouns = [
     possPro: "yours",
     reflexive: "yourself",
     image:
-      "https://s3-ap-northeast-1.amazonaws.com/wmcooper2.com/pokemon-pronouns/charizard.png"
+      "https://s3-ap-northeast-1.amazonaws.com/wmcooper2.com/pokemon-pronouns/charizard.png",
   },
   {
     subject: "he",
@@ -27,7 +27,7 @@ const pronouns = [
     possPro: "his",
     reflexive: "himself",
     image:
-      "https://s3-ap-northeast-1.amazonaws.com/wmcooper2.com/pokemon-pronouns/ash.jpg"
+      "https://s3-ap-northeast-1.amazonaws.com/wmcooper2.com/pokemon-pronouns/ash.jpg",
   },
   {
     subject: "she",
@@ -36,7 +36,7 @@ const pronouns = [
     possPro: "hers",
     reflexive: "herself",
     image:
-      "https://s3-ap-northeast-1.amazonaws.com/wmcooper2.com/pokemon-pronouns/misty.png"
+      "https://s3-ap-northeast-1.amazonaws.com/wmcooper2.com/pokemon-pronouns/misty.png",
   },
   {
     subject: "it",
@@ -45,7 +45,7 @@ const pronouns = [
     possPro: null,
     reflexive: "itself",
     image:
-      "https://s3-ap-northeast-1.amazonaws.com/wmcooper2.com/pokemon-pronouns/pokeball.png"
+      "https://s3-ap-northeast-1.amazonaws.com/wmcooper2.com/pokemon-pronouns/pokeball.png",
   },
   {
     subject: "we",
@@ -54,7 +54,7 @@ const pronouns = [
     possPro: "ours",
     reflexive: "ourselves",
     image:
-      "https://s3-ap-northeast-1.amazonaws.com/wmcooper2.com/pokemon-pronouns/we.jpg"
+      "https://s3-ap-northeast-1.amazonaws.com/wmcooper2.com/pokemon-pronouns/we.jpg",
   },
   {
     subject: "they",
@@ -63,24 +63,23 @@ const pronouns = [
     possPro: "theirs",
     reflexive: "themselves",
     image:
-      "https://s3-ap-northeast-1.amazonaws.com/wmcooper2.com/pokemon-pronouns/they.png"
-  }
+      "https://s3-ap-northeast-1.amazonaws.com/wmcooper2.com/pokemon-pronouns/they.png",
+  },
 ];
 
-const PronounBtns = props => {
+const PronounBtns = (props) => {
   let buttons = [];
-  pronouns.forEach(item => {
+  pronouns.forEach((item) => {
     buttons.push(
       <React.Fragment>
         <div className="pronoun" onClick={() => props.changePronoun(item)}>
           <img className="image" src={item.image} alt="pronoun"></img>
+          <span>{item.subject}</span>
         </div>
       </React.Fragment>
     );
   });
   return buttons;
 };
-
-
 
 export { pronouns, PronounBtns };

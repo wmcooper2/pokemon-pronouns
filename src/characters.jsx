@@ -1,20 +1,20 @@
 import React from "react";
-const SpeakersBox = props => {
+const Characters = (props) => {
   return (
-    <React.Fragment>
-      <img className="speaker" src={props.speaker} alt="speaker"></img>
+    <div className="characters">
+      <img className="pikachu" src={props.speaker} alt="pikachu"></img>
       <img
         src="https://s3-ap-northeast-1.amazonaws.com/wmcooper2.com/pokemon-pronouns/speechbubble.png"
         className="speechbubble"
         alt="speech bubble"
       ></img>
       <img
-        className="listener"
+        className="charizard"
         src="https://s3-ap-northeast-1.amazonaws.com/wmcooper2.com/pokemon-pronouns/charizardsface.png"
-        alt="listener"
+        alt="charizard"
       ></img>
-    </React.Fragment>
+    </div>
   );
 };
 
-export default SpeakersBox;
+export default Characters;

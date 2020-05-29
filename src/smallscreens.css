@@ -1,0 +1,25 @@
+@media (max-width: 600px) {
+  div.lesson {
+    width: 100vw;
+  }
+
+  div.pronoun,
+  .main {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* div.main { */
+  /* justify-content: space-around; */
+  /* } */
+
+  div.pronoun {
+    font-size: 1rem;
+  }
+
+  div.choices {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+  }
+}

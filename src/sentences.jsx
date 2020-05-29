@@ -1,29 +1,30 @@
 import React from "react";
 
-const UpperSentence = props => {
+const ExampleSentence = (props) => {
   const {
     changeObject,
     changeVerb,
     verbIndex,
     objectIndex,
     verbChoices,
-    objectPlurals
+    objectPlurals,
   } = props;
+
   return (
     <React.Fragment>
       <span>+</span>
-      <div className="verb word example" onClick={() => changeVerb()}>
+      <div className="word verb" onClick={() => changeVerb()}>
         {verbChoices[verbIndex]}
       </div>
       <span>+</span>
-      <div className="object word example" onClick={() => changeObject()}>
+      <div className="word object" onClick={() => changeObject()}>
         {Object.keys(objectPlurals)[objectIndex]}
       </div>
     </React.Fragment>
   );
 };
 
-const LowerSentence = props => {
+const CorrectSentence = (props) => {
   const {
     subject,
     lowerSubject,
@@ -31,28 +32,22 @@ const LowerSentence = props => {
     lowerObject,
     changeVerbForm,
     changeObjectForm,
-    capitalize
+    capitalize,
   } = props;
-  //   console.log("LowerSentence: lowerVerb", lowerVerb);
+
   return (
-    <React.Fragment>
-      <div
-        className="lowersentence word subject"
-        onClick={() => capitalize(subject.subject)}
-      >
+    <div className="dialog">
+      <div className="word subject" onClick={() => capitalize(subject.subject)}>
         {lowerSubject}
       </div>
-      <div className="lowersentence word verb" onClick={() => changeVerbForm()}>
+      <div className="word verb" onClick={() => changeVerbForm()}>
         {lowerVerb}
       </div>
-      <div
-        className="lowersentence word object"
-        onClick={() => changeObjectForm()}
-      >
+      <div className="word object" onClick={() => changeObjectForm()}>
         {lowerObject}
       </div>
-    </React.Fragment>
+    </div>
   );
 };
 
-export { UpperSentence, LowerSentence };
+export { ExampleSentence, CorrectSentence };

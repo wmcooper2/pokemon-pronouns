@@ -1,3 +1,5 @@
+@import "smallscreens.css";
+
 :root {
   --small-padding: 3px;
   --med-padding: 10px;
@@ -5,6 +7,17 @@
   --light-blue: #aed6f1;
   --soft-border: 6px;
 }
+
+body {
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden;
+}
+
+* {
+  border: 1px solid black;
+}
+
 @font-face {
   font-family: Andika;
   src: url("https://fonts.googleapis.com/css?family=Andika&display=swap");
@@ -15,25 +28,64 @@ img {
   font-family: Andika, "Arial", "Times New Roman";
 }
 
-.upper {
-  display: flex;
-  justify-content: center;
-  min-height: 50vh;
-  margin-top: 5vh;
+div.buttons {
+  padding: var(--small-padding) var(--med-padding);
 }
 
-.upperleft {
+li {
+  margin: var(--small-margin) auto;
+}
+
+span {
+  padding: 1px;
+}
+
+.answer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.dialog {
+  display: flex;
+  max-width: 50%;
+}
+
+.main {
+  display: flex;
+  justify-content: space-between;
+  height: 100vh;
+  width: 100vw;
+}
+
+.choices {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  min-width: 80vw;
+  width: 20vw;
 }
 
-.upperright {
+.lesson {
   display: flex;
-  justify-content: center;
-  width: 20vw;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 80vw;
+  height: 100%;
+}
+
+.example {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.example img {
+  height: 30vw;
+  width: 30vw;
+}
+
+.example span {
+  font-size: 4rem;
 }
 
 .buttons {
@@ -47,44 +99,26 @@ img {
   min-width: 10vw;
 }
 
-div.buttons {
-  padding: var(--small-padding) var(--med-padding);
-}
-
-.subjectpic {
+.example .subject {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   border-radius: 6px;
-  max-height: 256px;
-  margin: 10px;
-}
-
-.uppersentence {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  font-size: 3em;
-}
-
-.word {
-  margin: 10px;
-  padding: var(--med-padding);
-  border-radius: 6px;
-}
-
-.example {
-  margin: auto 30px;
 }
 
 .pronoun {
   margin: 2px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* display: flex; */
+  /* justify-content: space-between; */
+  /* align-items: center; */
+}
+
+.pronoun span {
+  text-align: center;
+  font-size: 2rem;
 }
 
 .pronoun:hover {
@@ -95,40 +129,17 @@ div.buttons {
 
 .lower {
   display: flex;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
 }
 
 .image,
-.speaker,
-.listener,
+.pikachu,
+.charizard,
 .speechbubble {
   width: 5vw;
   height: 5vw;
   margin: 3px;
-}
-
-.speechbubble {
-  margin-bottom: 15vh;
-}
-
-.listener {
-  margin-right: 10px;
-}
-
-.lowersentence {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 3em;
-}
-
-.lowerleft {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-width: 80vw;
 }
 
 .help {
@@ -147,8 +158,25 @@ div.buttons {
   padding: var(--med-padding);
 }
 
-span {
-  padding: 1px;
+.language-button {
+  width: 10vw;
+  height: auto;
+  margin: 0% 50%;
+  border: none;
+  outline: none;
+  font-size: 1.5rem;
+  border-radius: var(--soft-border);
+  background-color: var(--light-blue);
+}
+
+.object,
+.helpobject {
+  background-color: #82e0aa;
+  box-shadow: 0px 0px 3px 3px #82e0aa;
+}
+
+.speechbubble {
+  margin-bottom: 15vh;
 }
 
 .subject,
@@ -163,23 +191,8 @@ span {
   box-shadow: 0px 0px 3px 3px #f7dc6f;
 }
 
-.object,
-.helpobject {
-  background-color: #82e0aa;
-  box-shadow: 0px 0px 3px 3px #82e0aa;
-}
-
-li {
-  margin: var(--small-margin) auto;
-}
-
-.language-button {
-  width: 10vw;
-  height: auto;
-  margin: 0% 50%;
-  border: none;
-  outline: none;
-  font-size: 1.5rem;
-  border-radius: var(--soft-border);
-  background-color: var(--light-blue);
+.word {
+  font-size: 3em;
+  padding: var(--med-padding);
+  border-radius: 6px;
 }

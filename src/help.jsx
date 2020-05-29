@@ -1,7 +1,7 @@
 import React from "react";
 import { EnglishInst, JapaneseInst } from "./instructions";
 
-const HelpInstructions = props => {
+const HelpInstructions = (props) => {
   const { help, English, toggleLanguage } = props;
   // console.log("English? ", English);
   let textStyles = { fontSize: "3em" };
@@ -17,11 +17,11 @@ const HelpInstructions = props => {
   }
 
   return (
-    <div className="upperleft">
+    <div className="instructions">
       <div className="uppersentence" style={textStyles}>
         <ol>
           <div className="upperhelp">
-            <h1 className="upperlefthelp">{instructions.above}</h1>
+            <h1>{instructions.above}</h1>
             <div className="upperrighthelp">
               <li>{instructions.one}</li>
               <li>{instructions.two}</li>

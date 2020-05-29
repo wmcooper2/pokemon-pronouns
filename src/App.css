@@ -1,8 +1,7 @@
 @import "smallscreens.css";
 
 :root {
-  --small-padding: 3px;
-  --med-padding: 10px;
+  --med-padding: 1rem;
   --small-margin: 10px;
   --light-blue: #aed6f1;
   --soft-border: 6px;
@@ -15,12 +14,16 @@ body {
 }
 
 * {
-  border: 1px solid black;
+  /* border: 1px solid black; */
 }
 
 @font-face {
   font-family: Andika;
   src: url("https://fonts.googleapis.com/css?family=Andika&display=swap");
+}
+
+h1 {
+  margin-top: 0;
 }
 
 div,
@@ -30,6 +33,10 @@ img {
 
 li {
   margin: var(--small-margin) auto;
+}
+
+ol {
+  margin-top: 0;
 }
 
 span {
@@ -45,7 +52,7 @@ span {
 .dialog {
   display: flex;
   justify-content: space-around;
-  width: 50%;
+  width: 60%;
 }
 
 .main {
@@ -115,9 +122,10 @@ span {
   width: auto;
 }
 
-.pronoun span {
+.pronoun span,
+.helpbutton {
   text-align: center;
-  font-size: 2rem;
+  font-size: 3vw;
 }
 
 .pronoun:hover {
@@ -135,36 +143,30 @@ span {
 .pikachu,
 .charizard,
 .speechbubble {
-  /* width: 5vw; */
-  /* height: 5vw; */
-  /* margin: 3px; */
   height: 10vh;
   width: auto;
+  z-index: 1;
 }
 
-.help {
-  display: flex;
-  justify-content: center;
-  min-width: 18vw;
-  font-size: 1.5rem;
+.speechbubble {
+  transform: translate(-1vw, -5vh);
+  z-index: 0;
 }
 
-.helptext {
-  border-radius: 6px;
-  min-width: 10vw;
-  text-align: center;
+.helpbutton {
+  border-radius: 0.5rem;
   background-color: #aed6f1;
   text-decoration: none;
-  padding: var(--med-padding);
+  /* padding: var(--med-padding); */
+  /* font-size: 2rem; */
 }
 
 .language-button {
-  width: 10vw;
-  height: auto;
-  margin: 0% 50%;
+  display: flex;
+  margin: auto auto;
   border: none;
   outline: none;
-  font-size: 1.5rem;
+  font-size: 2rem;
   border-radius: var(--soft-border);
   background-color: var(--light-blue);
 }
@@ -188,7 +190,12 @@ span {
 }
 
 .word {
-  font-size: 3em;
+  font-size: 3vw;
   padding: var(--med-padding);
   border-radius: 6px;
+}
+
+.uppersentence {
+  display: flex;
+  justify-content: center;
 }

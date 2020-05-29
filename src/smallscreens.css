@@ -30,4 +30,20 @@
   div.dialog {
     width: 100%;
   }
+
+  div.word {
+    font-size: 7vw;
+  }
+
+  ol {
+    padding-left: 6vw;
+  }
+
+  div.example span {
+    font-size: 1rem;
+  }
+
+  .helpbutton {
+    padding: var(--med-padding);
+  }
 }

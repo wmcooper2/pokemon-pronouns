@@ -6,10 +6,10 @@ const HelpBtn = (props) => {
     <Link
       style={{ textDecoration: "none", color: "black" }}
       to={props.help ? "/" : "/help"}
+      onClick={() => props.handleClick()}
+      className="helpbutton"
     >
-      <div onClick={() => props.handleClick()} className="helptext">
-        {props.help ? "Return" : "Help"}
-      </div>
+      {props.help ? "Return" : "Help"}
     </Link>
   );
 };

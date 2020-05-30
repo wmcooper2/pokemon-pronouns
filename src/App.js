@@ -85,7 +85,6 @@ class App extends React.Component {
         ? this.state.lowerObjectOptionIndex + 1
         : 0;
     let sentenceEnd = options[optionCounter];
-    // console.log("sentenceEnd: ", sentenceEnd);
     this.setState(() => {
       return {
         lowerObject: sentenceEnd,
@@ -116,6 +115,7 @@ class App extends React.Component {
   };
 
   toggleLanguage = () => {
+    console.log("width", window.innerWidth);
     this.setState(() => {
       return { English: !this.state.English };
     });

@@ -5,7 +5,8 @@ const EnglishInst = {
   below: "Below Sentence",
   one: (
     <React.Fragment>
-      Click the characters on the right to change the &nbsp;
+      Click the characters {window.innerHeight < 720 ? "below" : "on the right"}{" "}
+      to change the &nbsp;
       <span className="helpsubject">subject</span>&nbsp;.
     </React.Fragment>
   ),
@@ -33,7 +34,7 @@ const EnglishInst = {
       It is up to the teacher to know the correct use of the &nbsp;
       <span className="helpobject">object</span>&nbsp;.
     </React.Fragment>
-  )
+  ),
 };
 
 const JapaneseInst = {
@@ -68,7 +69,7 @@ const JapaneseInst = {
       &nbsp;<span className="helpobject">目的語</span>
       &nbsp;の正確な使い方は先生次第です。
     </React.Fragment>
-  )
+  ),
 };
 
 export { EnglishInst, JapaneseInst };

@@ -29,4 +29,4 @@ Pikachu is talking to Charizard using simple Subject-Verb-Object, 3-word sentenc
 My Japanese is not perfect, but I was able to consult with the other teachers to find a translation that would be easy to understand for teachers and students alike.
 
 ## More Information
-This app is meant to be used on large screens like laptops, desktops and digital whiteboards. Later, I will adapt it for small screens (May 24th, 2020).
+N/A

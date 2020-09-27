@@ -14,8 +14,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       subject: pronouns[0],
-      speaker:
-        "https://s3-ap-northeast-1.amazonaws.com/wmcooper2.com/pokemon-pronouns/speaker.png",
+      speaker: "/speaker.png",
       verbIndex: 0,
       objectIndex: 0,
       lowerObjectOptionIndex: 0,

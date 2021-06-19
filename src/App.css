@@ -77,7 +77,7 @@ span {
   width: 100vw;
 }
 
-.choices {
+.choices2 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -89,6 +89,14 @@ span {
       -ms-flex-pack: center;
           justify-content: center;
   width: 20vw;
+}
+
+.choices {
+  display: flex;
+  flex-direction:column;
+  justify-content: center;
+  /* width: 20vw; */
+  /* width: 100%; */
 }
 
 .lesson {
@@ -172,8 +180,11 @@ span {
 }
 
 .pronoun img {
-  height: 100%;
-  width: auto;
+  /* height: 100%; */
+  height: 4rem;
+  /* height: auto; */
+  /* width: auto; */
+
 }
 
 .pronoun span,
